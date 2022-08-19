@@ -7,3 +7,4 @@ graph = NonOrientedGraph(vertices, edges)
 
 graph.build_adjacency_matrix()
 log_matrix(graph.get_adjacency_matrix())
+print(graph.adjacency_list())

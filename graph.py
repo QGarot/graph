@@ -8,6 +8,10 @@ class NonOrientedGraph:
         self.edges = edges
         self.adjacency_matrix = None
 
+    @classmethod
+    def generate_with_adjacency_matrix(cls, matrix):
+        pass
+
     def adjacent(self, vrtx1, vrtx2):
         """
         Are to vertices neighbors?
@@ -42,3 +46,22 @@ class NonOrientedGraph:
         :return: matrix (list of list)
         """
         return self.adjacency_matrix
+
+    def adjacency_list(self):
+        """
+        Return dictionary representing adjacency list.
+        Keys => vertices
+        Values => list of adjacent vertices
+        :return: dict
+        """
+        dic = dict()
+        for vertex in self.vertices:
+            neighbors = []
+            for edge in self.edges:
+                if edge[0] == vertex:
+                    neighbors.append(edge[1])
+                elif edge[1] == vertex:
+                    neighbors.append(edge[0])
+                dic[vertex] = neighbors
+
+        return dic
